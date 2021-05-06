@@ -5,7 +5,7 @@ using namespace std;
 int main()
 {
     //Declaramos las variables en flotante
-    float m1,b1,m2,b2,inty,intx;
+    float m1,b1,m2,b2,inty,intx,m;
     cout << "Calculadora de interseccion entre rectas en r2" << endl;
     cout << "Ecuacion de la forma: y=mx+b" << endl;
     cout << "" << endl;
@@ -22,10 +22,15 @@ int main()
     cout << "Inserte el valor de b (ordenada al origen)" << endl;
     cin >> b2;
     //Depejamos x
-    intx=(b2-b1)/(m1-m2);
+    m=m1-m2;
+    if (m==0){
+        cout << "Las rectas son paralelas (no se intersectan) " << endl;
+    } else {
+    intx=(b2-b1)/m;
     //Reemplazamos en y
     inty=intx*m1+b1;
     //Mostramos por pantalla el resultaod
     cout << "Interseccion de la recta en y: " << inty << endl;
     cout << "Interseccion de la recta en x: " << intx << endl;
+    }
 }
