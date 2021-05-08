@@ -5,7 +5,7 @@ using namespace std;
 int main()
 {
     //Declaramos las variables en flotante
-    float m1,b1,m2,b2,inty,intx,m;
+    float m1,b1,m2,b2,inty,intx;
     cout << "Calculadora de interseccion entre rectas en r2" << endl;
     cout << "Ecuacion de la forma: y=mx+b" << endl;
     cout << "" << endl;
@@ -21,15 +21,23 @@ int main()
     cin >> m2;
     cout << "Inserte el valor de b (ordenada al origen)" << endl;
     cin >> b2;
-    //Depejamos x
-    m=m1-m2;
-    if (m==0){
-        cout << "Las rectas son paralelas (no se intersectan) " << endl;
+
+    // Si la pendiente es igual se abren dos posibilidades
+    if (m1==m2){
+        if (b1==b2) {
+            //Que sean la misma recta (misma ordenada al origen)
+            cout << "Las rectas se cortan en infinitos puntos (son iguales)" << endl;
+        } else {
+            //Que las rectas sean paralelas
+            cout << "Las rectas no se cortan (son paralelas) " << endl;
+        }
+    //Si no ocurren estos casos seguimos operando
     } else {
-    intx=(b2-b1)/m;
-    //Reemplazamos en y
+    //Encontramos la intersección en x igualando y haciendo operaciones
+    intx=(b2-b1)/(m1-m2);
+    //Reemplazamos en la ecuacion original para la intersección en y
     inty=intx*m1+b1;
-    //Mostramos por pantalla el resultaod
+    //Mostramos por pantalla el resultado
     cout << "Interseccion de la recta en y: " << inty << endl;
     cout << "Interseccion de la recta en x: " << intx << endl;
     }
